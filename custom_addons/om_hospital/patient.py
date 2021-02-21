@@ -11,8 +11,13 @@ class HospitalPatient(models.Model):
     patient_age = fields.Char(string='Age')
     notes = fields.Text(string="Notes")
     image = fields.Binary(string="Image")
-    name_seq = fields.Char(string="Order Reference", required=True, copy=False,
+    name_seq = fields.Char(string="Patient ID", required=True, copy=False,
                            readonly=True, index=True, default=lambda self: _('New'))
+    gender = fields.Selection(
+        string='Gender',
+        selection=[('male', 'Male'),
+                   ('fe_male', 'Female'), ], default='male')
+
 
     @api.model
     def create(self, vals_list):
