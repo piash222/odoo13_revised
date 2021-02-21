@@ -11,7 +11,8 @@
 
     ],
     'data': [
-
+        'security/ir.model.access.csv',
+        'patient.xml',
     ],
     'demo': [
 
