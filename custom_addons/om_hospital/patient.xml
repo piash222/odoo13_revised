@@ -20,10 +20,16 @@
                             </group>
                         </group>
                         <group>
-                            <field name="gender"/>
-                            <field name="notes"/>
+                            <group>
+                                <field name="gender"/>
+                            </group>      
+                            <group>
+                                <field name="age_group"/>
+                            </group>
+                        </group>
+                        <group>
+                             <field name="notes"/>
                             <field name="image"/>
-
                         </group>
                     </sheet>
                     <div class="oe_chatter">
@@ -44,6 +50,7 @@
                     <field name="name_seq"/>
                     <field name="patient_name"/>
                     <field name="patient_age"/>
+                    <field name="age_group"/>
                     <field name="gender"/>
                     <field name="notes"/>
                 </tree>
