@@ -1,4 +1,5 @@
 from odoo import fields, models, api, _
+from odoo.exceptions import ValidationError
 
 
 class HospitalPatient(models.Model):
@@ -36,3 +37,8 @@ class HospitalPatient(models.Model):
                 rec.age_group = 'minor'
             else:
                 rec.age_group = "major"
+
+    @api.constrains("patient_age")
+    def check_age(self):
+        if self.patient_age <= 5:
+            raise ValidationError(_("The age must be greater than 5"))
