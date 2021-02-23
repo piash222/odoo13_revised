@@ -16,7 +16,7 @@
                                 <field name="patient_name"/>
                             </group>
                             <group>
-                                <field name="patient_age"/>
+                                <field name="patient_age" track_visibility='always'/>
                             </group>
                         </group>
                         <group>
