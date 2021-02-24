@@ -4,6 +4,7 @@ from odoo import fields, models, api, _
 class HospitalAppointment(models.Model):
     _name = 'hospital.appointment'
     _description = 'Appointment'
+    _order = "id desc"
 
     name = fields.Char(string="Appointment ID", required=True, copy=False, readonly=True,
                        index=True, default=lambda self: _('New'))
