@@ -8,7 +8,7 @@ class HospitalAppointment(models.Model):
 
     name = fields.Char(string="Appointment ID", required=True, copy=False, readonly=True,
                        index=True, default=lambda self: _('New'))
-    patient_id = fields.Many2one('hospital.patient', string="Patient", required=True)
+    patient_id = fields.Many2one('hospital.patient', string="Patient", required=True, default=1)
     patient_age = fields.Integer(string="Age", related='patient_id.patient_age')
     notes = fields.Text(string="Registration Note", default="Subscribe our youtube channel")
     appointment_date = fields.Date(string="Date", required=True)
