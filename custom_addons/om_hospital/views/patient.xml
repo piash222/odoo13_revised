@@ -2,6 +2,16 @@
 <odoo>
     <data>
 
+<!--        action for smart button press-->
+        <record id="open_patient_appointments" model="ir.actions.act_window">
+            <field name="name">Appointment</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hospital.appointment</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('patient_id', "=", active_id)]</field>
+            <field name="context">{}</field>
+        </record>
+
         <record id="patient_view_form" model="ir.ui.view">
             <field name="name">patient_view_form</field>
             <field name="model">hospital.patient</field>
@@ -12,7 +22,11 @@
                          <div class="oe_button_box" name="button_box">
                              <button name="open_patient_appointments" type="object"
                                      class="oe_stat_button" icon="fa-archive">
-                                 <field name="appointment_count" string="Appointments" widget="statinfo"/>
+                                 <field name="appointment_count" string="(0)Appointments" widget="statinfo"/>
+                             </button>
+                             <button name="%(open_patient_appointments)d" type="action"
+                                     class="oe_stat_button" icon="fa-usd">
+                                 <field name="appointment_count" string="(A)Appointments" widget="statinfo"/>
                              </button>
                          </div>
                         <div class="oe_title">
