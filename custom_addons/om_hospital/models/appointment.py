@@ -12,6 +12,12 @@ class HospitalAppointment(models.Model):
     patient_age = fields.Integer(string="Age", related='patient_id.patient_age')
     notes = fields.Text(string="Registration Note", default="Subscribe our youtube channel")
     appointment_date = fields.Date(string="Date", required=True)
+    state = fields.Selection(
+        selection=[('draft', 'Draft'),
+                   ('confirm', 'Confirm'),
+                   ('done', 'Done'),
+                   ('cancel', 'Canceled')],
+        string='Status', readonly=True, default='draft')
 
     @api.model
     def create(self, vals_list):
