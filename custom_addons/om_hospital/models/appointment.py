@@ -25,3 +25,9 @@ class HospitalAppointment(models.Model):
             vals_list['name'] = self.env['ir.sequence'].next_by_code('hospital.appointment') or _('New')
             result = super(HospitalAppointment, self).create(vals_list)
             return result
+
+    def action_confirm(self):
+        self.state = "confirm"
+
+    def action_done(self):
+        self.state = "done"
