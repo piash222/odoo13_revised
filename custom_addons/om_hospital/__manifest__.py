@@ -15,6 +15,8 @@
         'data/sequence.xml',
         'views/patient.xml',
         'views/appointment.xml',
+        'reports/patient_card.xml',
+        'reports/report.xml'
     ],
     'demo': [
 

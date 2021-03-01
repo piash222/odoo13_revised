@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- QWeb Reports -->
+        <!-- NAME & FILE_NAME should be the same -->
+            <report
+                id="report_patient_card"
+                string ="Patient Card"
+                model="hospital.patient"
+                report_type="qweb-pdf"
+                name="om_hospital.report_patient"
+                file="om_hospital.report_patient"
+            />
+
+    </data>
+</odoo>
