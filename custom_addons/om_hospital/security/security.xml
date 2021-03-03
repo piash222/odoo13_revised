@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.module.category" id="module_category_hospital">
+            <field name="name">Hospital Management</field>
+            <field name="description">Category for Hospital</field>
+            <field name="sequence">45</field>
+        </record>
+
+        <record id="group_hospital_doctor" model="res.groups">
+            <field name="name">Doctor</field>
+            <field name="category_id" ref="om_hospital.module_category_hospital"/>
+        </record>
+
+        <record id="group_hospital_manager" model="res.groups">
+            <field name="name">Manager</field>
+            <field name="category_id" ref="om_hospital.module_category_hospital"/>
+        </record>
+
+        <record id="patient_record_rule" model="ir.rule">
+            <field name="name">See only His Patient</field>
+            <field ref="model_hospital_patient" name="model_id"/>
+            <field name="domain_force">[('doctor.user_id', '=', user.id)]</field>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+            <!-- You can attach this rule to a specific group, Or make it Global -->
+            <field name="groups" eval="[(4, ref('group_hospital_doctor'))]"/>
+            <!--<field name="global" eval="1"/> -->
+        </record>
+
+        <record id="manager_record_rule" model="ir.rule">
+            <field name="name">See All Patient</field>
+            <field ref="model_hospital_patient" name="model_id"/>
+            <field name="domain_force">[]</field>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+            <!-- You can attach this rule to a specific group, Or make it Global -->
+            <field name="groups" eval="[(4, ref('om_hospital.group_hospital_manager'))]"/>
+            <!--<field name="global" eval="1"/> -->
+        </record>
+
+
+
+    </data>
+</odoo>

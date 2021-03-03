@@ -23,6 +23,7 @@ class HospitalPatient(models.Model):
         string='Age Group',
         selection=[('major', 'Major'),
                    ('minor', 'Minor')], compute='set_age_group')
+    doctor = fields.Many2one(comodel_name="hospital.doctor", string="Doctor")
     appointment_count = fields.Integer(string="Appointment", compute='get_appointment_count')
     active = fields.Boolean("Active", default=True)
 

@@ -12,10 +12,12 @@
     ],
     'data': [
         'security/ir.model.access.csv',
+        'security/security.xml',
         'data/sequence.xml',
         'data/data.xml',
         'views/patient.xml',
         'views/appointment.xml',
+        'views/doctor.xml',
         'reports/patient_card.xml',
         'reports/report.xml'
     ],
