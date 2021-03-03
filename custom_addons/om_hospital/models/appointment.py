@@ -15,6 +15,8 @@ class HospitalAppointment(models.Model):
     doctor_note = fields.Text(string="Doctor note")
     pharmacy_note = fields.Text(string="Pharmacy note")
     appointment_date = fields.Date(string="Date", required=True, default=datetime.now())
+    active = fields.Boolean("Active", default=True)
+
     state = fields.Selection(
         selection=[('draft', 'Draft'),
                    ('confirm', 'Confirm'),

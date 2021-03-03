@@ -28,6 +28,9 @@
                                      class="oe_stat_button" icon="fa-usd">
                                  <field name="appointment_count" string="(A)Appointments" widget="statinfo"/>
                              </button>
+<!--                             <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">-->
+<!--                                 <field name="active"  options="{&quot;terminology&quot;: &quot;archive&quot;}"/>-->
+<!--                             </button>-->
                          </div>
                         <div class="oe_title">
                             <h1>
@@ -54,6 +57,7 @@
                         <group>
                              <field name="notes"/>
                             <field name="image"/>
+                            <field name="active" invisible="1"/>
                         </group>
                     </sheet>
                     <div class="oe_chatter">

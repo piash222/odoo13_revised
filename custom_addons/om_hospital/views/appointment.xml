@@ -35,6 +35,7 @@
                             </group>
                             <group>
                                 <field name="notes"/>
+                                <field name="active" invisible="1"/>
                             </group>
 
                         </group>
