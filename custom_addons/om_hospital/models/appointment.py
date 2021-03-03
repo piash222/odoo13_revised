@@ -4,6 +4,7 @@ from odoo import fields, models, api, _
 class HospitalAppointment(models.Model):
     _name = 'hospital.appointment'
     _description = 'Appointment'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _order = "id desc"
 
     name = fields.Char(string="Appointment ID", required=True, copy=False, readonly=True,
@@ -11,6 +12,8 @@ class HospitalAppointment(models.Model):
     patient_id = fields.Many2one('hospital.patient', string="Patient", required=True, default=1)
     patient_age = fields.Integer(string="Age", related='patient_id.patient_age')
     notes = fields.Text(string="Registration Note", default="Subscribe our youtube channel")
+    doctor_note = fields.Text(string="Doctor note")
+    pharmacy_note = fields.Text(string="Pharmacy note")
     appointment_date = fields.Date(string="Date", required=True)
     state = fields.Selection(
         selection=[('draft', 'Draft'),
