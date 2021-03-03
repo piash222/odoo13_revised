@@ -1,5 +1,5 @@
 from odoo import fields, models, api, _
-
+from datetime import datetime
 
 class HospitalAppointment(models.Model):
     _name = 'hospital.appointment'
@@ -14,7 +14,7 @@ class HospitalAppointment(models.Model):
     notes = fields.Text(string="Registration Note", default="Subscribe our youtube channel")
     doctor_note = fields.Text(string="Doctor note")
     pharmacy_note = fields.Text(string="Pharmacy note")
-    appointment_date = fields.Date(string="Date", required=True)
+    appointment_date = fields.Date(string="Date", required=True, default=datetime.now())
     state = fields.Selection(
         selection=[('draft', 'Draft'),
                    ('confirm', 'Confirm'),
