@@ -70,7 +70,7 @@
                     <field name="name"/>
                     <field name="state"/>
                     <field name="patient_id"/>
-                    <field name="patient_age"/>
+                    <field name="patient_age" sum="Total of Ages" />
                     <field name="appointment_date"/>
                 </tree>
             </field>
