@@ -8,7 +8,7 @@
     'website': 'shihabuddin.me',
     'license': 'AGPL-3',
     'depends': [
-        'mail',
+        'mail', 'product'
     ],
     'data': [
         'security/ir.model.access.csv',

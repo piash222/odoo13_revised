@@ -1,6 +1,7 @@
 from odoo import fields, models, api, _
 from datetime import datetime
 
+
 class HospitalAppointment(models.Model):
     _name = 'hospital.appointment'
     _description = 'Appointment'
@@ -16,6 +17,9 @@ class HospitalAppointment(models.Model):
     pharmacy_note = fields.Text(string="Pharmacy note")
     appointment_date = fields.Date(string="Date", required=True, default=datetime.now())
     active = fields.Boolean("Active", default=True)
+    appointment_line = fields.One2many(comodel_name="hospital.appointment.lines", inverse_name="appointment_id",
+                                       string="Appointment Lines")
+
 
     state = fields.Selection(
         selection=[('draft', 'Draft'),
@@ -36,3 +40,13 @@ class HospitalAppointment(models.Model):
 
     def action_done(self):
         self.state = "done"
+
+
+class HospitalAppointmentLines(models.Model):
+    _name = 'hospital.appointment.lines'
+    _description = 'Appointment Lines'
+    # _inherit = ['product.product']
+
+    product_id = fields.Many2one("product.product", string="Medicine")
+    product_qty = fields.Integer(string="Quantity")
+    appointment_id = fields.Many2one(comodel_name="hospital.appointment", string='Appointment ID')

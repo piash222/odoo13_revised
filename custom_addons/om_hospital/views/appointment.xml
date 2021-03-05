@@ -41,10 +41,28 @@
                         </group>
                         <notebook>
                             <page string="Doctor Prescription">
-                                <group>
-                                    <field name="doctor_note"/>
+                                <field name="appointment_line">
+                                    <tree editable="bottom">
+                                        <field name="product_id"/>
+                                        <field name="product_qty"/>
+                                        <field name="appointment_id" invisible="1"/>
 
-                                </group>
+                                    </tree>
+                                    <form>
+                                        <group>
+
+                                            <group>
+
+                                                <field name="product_id"/>
+                                            </group>
+                                            <group>
+
+                                                <field name="product_qty"/>
+                                            </group>
+                                        </group>
+                                    </form>
+
+                                </field>
                             </page>
                             <page string="Pharmacy">
                                 <group>
