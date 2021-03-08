@@ -18,6 +18,7 @@
         'views/patient.xml',
         'views/appointment.xml',
         'views/doctor.xml',
+        'wizards/create_appointment.xml',
         'reports/patient_card.xml',
         'reports/report.xml'
     ],
