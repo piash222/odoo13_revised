@@ -28,4 +28,7 @@
         <field name="target">new</field>
     </record>
 
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="create_appointment_menu" name="Create Appointment" parent="om_hospital.hospital_root" action="create_appointment_wizard" sequence="100"/>
+
 </odoo>
