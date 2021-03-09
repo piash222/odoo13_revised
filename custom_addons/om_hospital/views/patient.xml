@@ -2,7 +2,7 @@
 <odoo>
     <data>
 
-<!--        action for smart button press-->
+        <!--        action for smart button press-->
         <record id="open_patient_appointments" model="ir.actions.act_window">
             <field name="name">Appointment</field>
             <field name="type">ir.actions.act_window</field>
@@ -17,25 +17,26 @@
             <field name="model">hospital.patient</field>
             <field name="arch" type="xml">
                 <form string="patient_form">
-                     <header>
-                            <button name="%(create_appointment_wizard)d" string="Create Appointment" type="action" class="oe_highlight"/>
-                     </header>
+                    <header>
+                        <button name="%(create_appointment_wizard)d" string="Create Appointment" type="action"
+                                class="oe_highlight" context="{'default_patient_id': active_id}"/>
+                    </header>
                     <sheet>
 
 
-                         <div class="oe_button_box" name="button_box">
-                             <button name="open_patient_appointments" type="object"
-                                     class="oe_stat_button" icon="fa-archive">
-                                 <field name="appointment_count" string="(0)Appointments" widget="statinfo"/>
-                             </button>
-                             <button name="%(open_patient_appointments)d" type="action"
-                                     class="oe_stat_button" icon="fa-usd">
-                                 <field name="appointment_count" string="(A)Appointments" widget="statinfo"/>
-                             </button>
-<!--                             <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">-->
-<!--                                 <field name="active"  options="{&quot;terminology&quot;: &quot;archive&quot;}"/>-->
-<!--                             </button>-->
-                         </div>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="open_patient_appointments" type="object"
+                                    class="oe_stat_button" icon="fa-archive">
+                                <field name="appointment_count" string="(0)Appointments" widget="statinfo"/>
+                            </button>
+                            <button name="%(open_patient_appointments)d" type="action"
+                                    class="oe_stat_button" icon="fa-usd">
+                                <field name="appointment_count" string="(A)Appointments" widget="statinfo"/>
+                            </button>
+                            <!--                             <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">-->
+                            <!--                                 <field name="active"  options="{&quot;terminology&quot;: &quot;archive&quot;}"/>-->
+                            <!--                             </button>-->
+                        </div>
                         <div class="oe_title">
                             <h1>
                                 <field name="name_seq" readonly="1"/>
@@ -53,14 +54,15 @@
                         <group>
                             <group>
                                 <field name="gender"/>
-                            </group>      
+                            </group>
                             <group>
                                 <field name="age_group"/>
-                                <field name="doctor" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+                                <field name="doctor"
+                                       options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
                             </group>
                         </group>
                         <group>
-                             <field name="notes"/>
+                            <field name="notes"/>
                             <field name="image"/>
                             <field name="active" invisible="1"/>
                         </group>
@@ -95,9 +97,10 @@
             <field name="model">hospital.patient</field>
             <field name="arch" type="xml">
                 <search string="search patients">
-                    <field name="patient_name" string="patient name" filter_domain="['|', ('patient_name', 'ilike', self), ('name_seq', 'ilike', self)]"/>
+                    <field name="patient_name" string="patient name"
+                           filter_domain="['|', ('patient_name', 'ilike', self), ('name_seq', 'ilike', self)]"/>
                     <field name="name_seq"/>
-<!--                    <field name="name" filter_domain="['|',('patient_name','ilike', self),('name_seq','ilike', self)]"/>-->
+                    <!--                    <field name="name" filter_domain="['|',('patient_name','ilike', self),('name_seq','ilike', self)]"/>-->
                     <separator/>
                     <filter string="Male" name="male" domain="[('gender', '=', 'male')]"/>
                     <filter string="Female" name="female" domain="[('gender', '=', 'fe_male')]"/>
@@ -113,7 +116,7 @@
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">hospital.patient</field>
             <field name="view_mode">tree,form</field>
-            <field name="context">{'search_default_male':1}</field>
+            <field name="context">{'search_default_male': 1}</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">
                     Create First Patient!
