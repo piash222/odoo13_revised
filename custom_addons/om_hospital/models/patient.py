@@ -9,6 +9,12 @@ class HospitalPatient(models.Model):
     _rec_name = "patient_name"
     _order = "id desc"
 
+    def name_get(self):
+        res = []
+        for field in self:
+            res.append((field.id, '%s - %s' % (field.name_seq, field.patient_name)))
+        return res
+
     patient_name = fields.Char(string='Name', required=True)
     patient_age = fields.Integer(string='Age')
     notes = fields.Text(string="Notes")
