@@ -24,6 +24,10 @@ class HospitalPatient(models.Model):
         selection=[('major', 'Major'),
                    ('minor', 'Minor')], compute='set_age_group')
     doctor = fields.Many2one(comodel_name="hospital.doctor", string="Doctor")
+    doctor_gender = fields.Selection(
+        string='Gender',
+        selection=[('male', 'Male'),
+                   ('fe_male', 'Female'), ])
     appointment_count = fields.Integer(string="Appointment", compute='get_appointment_count')
     active = fields.Boolean("Active", default=True)
 
@@ -49,6 +53,12 @@ class HospitalPatient(models.Model):
 
     def get_appointment_count(self):
         self.appointment_count = self.env['hospital.appointment'].search_count([('patient_id', '=', self.id)])
+
+    @api.onchange('doctor')
+    def set_doctor_gender(self):
+        for rec in self:
+            if rec.doctor:
+                rec.doctor_gender = rec.doctor.gender
 
     def open_patient_appointments(self):
         return {
