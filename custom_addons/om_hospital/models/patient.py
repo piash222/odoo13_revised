@@ -36,6 +36,8 @@ class HospitalPatient(models.Model):
                    ('fe_male', 'Female'), ])
     appointment_count = fields.Integer(string="Appointment", compute='get_appointment_count')
     active = fields.Boolean("Active", default=True)
+    email_id = fields.Char(string="Email")
+    user_id = fields.Many2one('res.users')
 
     @api.model
     def create(self, vals_list):

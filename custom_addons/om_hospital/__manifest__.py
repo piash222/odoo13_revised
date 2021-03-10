@@ -15,6 +15,7 @@
         'security/security.xml',
         'data/sequence.xml',
         'data/data.xml',
+        'data/mail_template.xml',
         'views/patient.xml',
         'views/appointment.xml',
         'views/doctor.xml',
