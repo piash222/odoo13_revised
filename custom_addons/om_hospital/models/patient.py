@@ -78,3 +78,9 @@ class HospitalPatient(models.Model):
             'view_mode': 'tree,form',
             'type': 'ir.actions.act_window',
         }
+
+    def action_send_card(self):
+        print("sending email")
+        template_id = self.env.ref('om_hospital.patient_card_email_template').id
+        template = self.env['mail.template'].browse(template_id)
+        template.send_mail(self.id, force_send=True)
