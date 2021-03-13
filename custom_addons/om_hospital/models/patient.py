@@ -38,6 +38,7 @@ class HospitalPatient(models.Model):
     active = fields.Boolean("Active", default=True)
     email_id = fields.Char(string="Email")
     user_id = fields.Many2one('res.users')
+    contact = fields.Char(String="Contact Number", default="01712345678")
 
     @api.model
     def create(self, vals_list):

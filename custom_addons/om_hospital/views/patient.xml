@@ -31,7 +31,8 @@
                     <header>
                         <button name="%(create_appointment_wizard)d" string="Create Appointment" type="action"
                                 class="oe_highlight" context="{'default_patient_id': active_id}"/>
-                        <button name="action_send_card" type="object" string="send by Email" class="oe_highlight"/>
+                        <button name="action_send_card" type="object" string="send by Email" class="oe_highlight"
+                                groups="om_hospital.group_hospital_manager"/>
                     </header>
                     <sheet>
 
@@ -74,6 +75,7 @@
                                 <field name="doctor"
                                        options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
                                 <field name="doctor_gender"/>
+                                <field name="contact" groups="om_hospital.group_hospital_manager"/>
                             </group>
                         </group>
                         <group>
