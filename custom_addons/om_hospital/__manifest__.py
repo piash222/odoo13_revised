@@ -8,7 +8,7 @@
     'website': 'shihabuddin.me',
     'license': 'AGPL-3',
     'depends': [
-        'mail', 'product'
+        'mail', 'product', 'odoo_report_xlsx',
     ],
     'data': [
         'security/ir.model.access.csv',

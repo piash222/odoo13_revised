@@ -9,9 +9,18 @@
                 string ="Patient Card"
                 model="hospital.patient"
                 report_type="qweb-pdf"
-                menu="False"
+                menu="True"
                 name="om_hospital.report_patient"
                 file="om_hospital.report_patient"
+            />
+
+            <report
+                id="report_patient_card_xls"
+                string ="Patient Card Excel"
+                model="hospital.patient"
+                report_type="xlsx"
+                name="om_hospital.report_patient_xls"
+                file="om_hospital.report_patient_xls"
             />
 
     </data>
