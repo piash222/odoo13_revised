@@ -39,6 +39,7 @@ class HospitalPatient(models.Model):
     email_id = fields.Char(string="Email")
     user_id = fields.Many2one('res.users')
     contact = fields.Char(String="Contact Number", default="01712345678")
+    patient_name_upper = fields.Char(compute='_compute_upper_name', inverse='_inverse_upper_name')
 
     @api.model
     def create(self, vals_list):
@@ -85,3 +86,12 @@ class HospitalPatient(models.Model):
         template_id = self.env.ref('om_hospital.patient_card_email_template').id
         template = self.env['mail.template'].browse(template_id)
         template.send_mail(self.id, force_send=True)
+
+    @api.depends('patient_name')
+    def _compute_upper_name(self):
+        for rec in self:
+            rec.patient_name_upper = rec.patient_name.upper() if rec.patient_name else False
+
+    def _inverse_upper_name(self):
+        for rec in self:
+            rec.patient_name = rec.patient_name_upper.capitalize() if rec.patient_name_upper else False
