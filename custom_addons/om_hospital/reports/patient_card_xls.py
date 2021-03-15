@@ -31,12 +31,12 @@ class PatientCardXLS(models.AbstractModel):
         sheet.write(0, 1, 'age', format1)
         sheet.write(0, 2, 'date ', format1)
         sheet.write(0, 3, 'note', format1)
-        sheet.write(2, 3, docs.patient_id, format2)
+        # sheet.write(2, 3, docs.patient_id.patient_name, format2)
 
-        # for idx, doc in enumerate(docs, start=1):
-        #     # for j in range(0, 4):
-        #     # print(idx, j)
-        #     sheet.write(idx, 0, doc.patient_id, format2)
-        #     sheet.write(idx, 1, doc.patient_age, format2)
-        #     sheet.write(idx, 2, doc.appointment_date, format2)
-        #     sheet.write(idx, 3, doc.notes, format2)
+        for idx, doc in enumerate(docs, start=1):
+            # for j in range(0, 4):
+            # print(idx, j)
+            sheet.write(idx, 0, doc.patient_id.id, format2)
+            sheet.write(idx, 1, doc.patient_age, format2)
+            sheet.write(idx, 2, doc.appointment_date, format2)
+            sheet.write(idx, 3, doc.notes, format2)
