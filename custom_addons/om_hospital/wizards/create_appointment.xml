@@ -12,6 +12,7 @@
 
                     </group>
                 <footer>
+                    <button name="print_report" string="Print" type="object" class="btn-primary"/>
                     <button name="create_appointment" string="create" type="object" class="btn-primary"/>
                     <button string="cancel" class="btn-secondary" special="cancel"/>
                 </footer>
