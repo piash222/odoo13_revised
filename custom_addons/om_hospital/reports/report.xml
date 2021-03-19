@@ -4,33 +4,34 @@
 
         <!-- QWeb Reports -->
         <!-- NAME & FILE_NAME should be the same -->
-            <report
+        <report
                 id="report_patient_card"
-                string ="Patient Card"
+                string="Patient Card"
                 model="hospital.patient"
                 report_type="qweb-pdf"
                 menu="True"
                 name="om_hospital.report_patient"
                 file="om_hospital.report_patient"
-            />
+        />
 
-            <report
+        <report
                 id="report_patient_card_xls"
-                string ="Patient Card Excel"
+                string="Patient Card Excel"
                 model="hospital.patient"
                 report_type="xlsx"
                 name="om_hospital.report_patient_xls"
                 file="om_hospital.report_patient_xls"
-            />
+        />
 
-         <report
+        <report
                 id="report_appointment"
                 string="Appointment"
                 model="hospital.patient"
                 report_type="qweb-pdf"
+                menu="False"
                 name="om_hospital.appointment_report"
                 file="om_hospital.appointment_report"
-         />
+        />
 
     </data>
 </odoo>
