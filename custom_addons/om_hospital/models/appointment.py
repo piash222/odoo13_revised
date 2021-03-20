@@ -20,7 +20,6 @@ class HospitalAppointment(models.Model):
     appointment_line = fields.One2many(comodel_name="hospital.appointment.lines", inverse_name="appointment_id",
                                        string="Appointment Lines")
 
-
     state = fields.Selection(
         selection=[('draft', 'Draft'),
                    ('confirm', 'Confirm'),
@@ -34,6 +33,10 @@ class HospitalAppointment(models.Model):
             vals_list['name'] = self.env['ir.sequence'].next_by_code('hospital.appointment') or _('New')
             result = super(HospitalAppointment, self).create(vals_list)
             return result
+
+    def write(self, values):
+        res = super(HospitalAppointment, self).write(values)
+        return res
 
     def action_confirm(self):
         self.state = "confirm"
