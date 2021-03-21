@@ -95,3 +95,7 @@ class HospitalPatient(models.Model):
     def _inverse_upper_name(self):
         for rec in self:
             rec.patient_name = rec.patient_name_upper.capitalize() if rec.patient_name_upper else False
+
+    @api.model
+    def test_cron_job(self):
+        print("cron job")
