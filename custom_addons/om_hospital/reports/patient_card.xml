@@ -23,8 +23,12 @@
                                         <tr>
                                             <td width="40%">
                                                 <p style="text-align:center;padding-top:10px;">
-                                                    <img t-if="not o.image" t-att-src="'/web/static/src/img/placeholder.png'" height="120" border="1" width="120"/>
-                                                    <img t-if="o.image" t-att-src="'data:image/png;base64,%s' % to_text(o.image)" height="120" border="1" width="120"/>
+                                                    <img t-if="not o.image"
+                                                         t-att-src="'/web/static/src/img/placeholder.png'" height="120"
+                                                         border="1" width="120"/>
+                                                    <img t-if="o.image"
+                                                         t-att-src="'data:image/png;base64,%s' % to_text(o.image)"
+                                                         height="120" border="1" width="120"/>
                                                 </p>
                                                 <p style="text-align:center;">
                                                     <h2><strong><span t-field="o.patient_name"/></strong></h2>
@@ -39,9 +43,12 @@
                                                             <p style="text-align:right;"><strong>Ph No: </strong></p>
                                                         </td>
                                                         <td>
-                                                            <p style="text-align:left;padding-left:10px;"  t-field="o.patient_age"/>
-                                                            <p style="text-align:left;padding-left:10px;" t-field="o.age_group"/>
-                                                            <p style="text-align:left;padding-left:10px;" t-field="o.patient_name"/>
+                                                            <p style="text-align:left;padding-left:10px;"
+                                                               t-field="o.patient_age"/>
+                                                            <p style="text-align:left;padding-left:10px;"
+                                                               t-field="o.age_group"/>
+                                                            <p style="text-align:left;padding-left:10px;"
+                                                               t-field="o.patient_name"/>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -49,32 +56,43 @@
                                         </tr>
                                     </table>
                                     <!--<table class="table table-condensed" style="border: 3px solid black !important;">-->
-                                        <!--<t t-foreach="appointment_list" t-as="app">-->
-                                            <!--<tr>-->
-                                                <!--<td>-->
-                                                    <!--<t t-esc="app['name']"/>-->
-                                                <!--</td>-->
-                                                <!--<td>-->
-                                                    <!--<t t-esc="app['notes']"/>-->
-                                                <!--</td>-->
-                                                <!--<td>-->
-                                                    <!--<t t-esc="app['appointment_date']"/>-->
-                                                <!--</td>-->
-                                            <!--</tr>-->
+                                    <!--<t t-foreach="appointment_list" t-as="app">-->
+                                    <!--<tr>-->
+                                    <!--<td>-->
+                                    <!--<t t-esc="app['name']"/>-->
+                                    <!--</td>-->
+                                    <!--<td>-->
+                                    <!--<t t-esc="app['notes']"/>-->
+                                    <!--</td>-->
+                                    <!--<td>-->
+                                    <!--<t t-esc="app['appointment_date']"/>-->
+                                    <!--</td>-->
+                                    <!--</tr>-->
 
-                                        <!--</t>-->
+                                    <!--</t>-->
                                     <!--</table>-->
+                                </div>
+                                <div style="width: 32%; display: inline-table; height:14rem;">
+                                    <table class="table table-bordered mb-0" style="border: 2px solid black;">
+
+                                        <tr>
+                                            <td class="text-center align-middle" style="height: 6rem">
+                                                <img alt="Barcode" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('EAN13', quote_plus(o.name_seq or ''), 600, 150)"/>
+                                                <span t-field="o.name_seq"/>
+                                            </td>
+                                        </tr>
+                                    </table>
                                 </div>
                             </center>
                             <!--adding the barcode to the report-->
                             <!--  https://www.youtube.com/watch?v=bwT_ZtKWn9E&list=PLqRRLx0cl0hoJhjFWkFYowveq2Zn55dhM&index=51  -->
                             <!--<table class="table table-bordered mb-0" style="border: 2px solid black;">-->
-                                <!--<tr>-->
-                                    <!--<td class="text-center align-middle" style="height: 6rem">-->
-                                        <!--<img alt="Barcode" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('EAN13', o.name_seq, 600, 150)" style="width:100%;height::4rem;"/>-->
-                                        <!--<span t-field="o.name_seq"/>-->
-                                    <!--</td>-->
-                                <!--</tr>-->
+                            <!--<tr>-->
+                            <!--<td class="text-center align-middle" style="height: 6rem">-->
+                            <!--<img alt="Barcode" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('EAN13', o.name_seq, 600, 150)" style="width:100%;height::4rem;"/>-->
+                            <!--<span t-field="o.name_seq"/>-->
+                            <!--</td>-->
+                            <!--</tr>-->
                             <!--</table>-->
                         </div>
                     </div>
