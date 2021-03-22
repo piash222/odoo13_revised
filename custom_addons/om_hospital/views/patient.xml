@@ -69,7 +69,7 @@
                                 <field name="gender"/>
                                 <field name="email_id"/>
                                 <field name="user_id"/>
-                                <field name="patient_name_upper"/>
+                                <field name="patient_name_upper" groups="base.group_no_one"/>
                             </group>
                             <group>
                                 <field name="age_group"/>
