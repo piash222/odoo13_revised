@@ -8,7 +8,7 @@
     'website': 'shihabuddin.me',
     'license': 'AGPL-3',
     'depends': [
-        'mail', 'product', 'odoo_report_xlsx',
+        'mail', 'product', 'odoo_report_xlsx', 'sale'
     ],
     'data': [
         'security/ir.model.access.csv',
@@ -23,7 +23,8 @@
         'views/lab.xml',
         'wizards/create_appointment.xml',
         'reports/patient_card.xml',
-        'reports/report.xml'
+        'reports/report.xml',
+        'reports/sale_report_inherit.xml'
     ],
     'demo': [
 
