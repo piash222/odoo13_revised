@@ -55,29 +55,30 @@
                                             </td>
                                         </tr>
                                     </table>
-                                    <!--<table class="table table-condensed" style="border: 3px solid black !important;">-->
-                                    <!--<t t-foreach="appointment_list" t-as="app">-->
-                                    <!--<tr>-->
-                                    <!--<td>-->
-                                    <!--<t t-esc="app['name']"/>-->
-                                    <!--</td>-->
-                                    <!--<td>-->
-                                    <!--<t t-esc="app['notes']"/>-->
-                                    <!--</td>-->
-                                    <!--<td>-->
-                                    <!--<t t-esc="app['appointment_date']"/>-->
-                                    <!--</td>-->
-                                    <!--</tr>-->
+                                    <table class="table table-condensed" style="border: 3px solid black !important;">
+                                        <t t-foreach="appointment_list" t-as="app">
+                                            <tr>
+                                                <td>
+                                                    <t t-esc="app['name']"/>
+                                                </td>
+                                                <td>
+                                                    <t t-esc="app['notes']"/>
+                                                </td>
+                                                <td>
+                                                    <t t-esc="app['appointment_date']"/>
+                                                </td>
+                                            </tr>
 
-                                    <!--</t>-->
-                                    <!--</table>-->
+                                        </t>
+                                    </table>
                                 </div>
                                 <div style="width: 32%; display: inline-table; height:14rem;">
                                     <table class="table table-bordered mb-0" style="border: 2px solid black;">
 
                                         <tr>
                                             <td class="text-center align-middle" style="height: 6rem">
-                                                <img alt="Barcode" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('EAN13', quote_plus(o.name_seq or ''), 600, 150)"/>
+                                                <img alt="Barcode"
+                                                     t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('EAN13', quote_plus(o.name_seq or ''), 600, 150)"/>
                                                 <span t-field="o.name_seq"/>
                                             </td>
                                         </tr>
