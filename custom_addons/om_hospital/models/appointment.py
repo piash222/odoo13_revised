@@ -44,6 +44,10 @@ class HospitalAppointment(models.Model):
     def action_done(self):
         self.state = "done"
 
+    def delete_lines(self):
+        for rec in self:
+            rec.appointment_line = [(5, 0, 0)]
+
 
 class HospitalAppointmentLines(models.Model):
     _name = 'hospital.appointment.lines'

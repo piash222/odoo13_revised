@@ -8,6 +8,7 @@
             <field name="arch" type="xml">
                 <form string="appointment_form">
                     <header>
+                        <button class="oe_highlight" name="delete_lines" type="object" string="delete"/>
                         <button class="oe_highlight" name="action_confirm" type="object" states="draft"
                                 string="confirm"/>
                         <button class="oe_highlight" name="action_done" type="object" states="confirm" string="done"/>
