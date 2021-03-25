@@ -19,6 +19,8 @@ class HospitalAppointment(models.Model):
     active = fields.Boolean("Active", default=True)
     appointment_line = fields.One2many(comodel_name="hospital.appointment.lines", inverse_name="appointment_id",
                                        string="Appointment Lines")
+    partner_id = fields.Many2one('res.partner', string="Customer")
+    order_id = fields.Many2one('sale.order', string="Sale Order")
 
     state = fields.Selection(
         selection=[('draft', 'Draft'),
@@ -47,6 +49,12 @@ class HospitalAppointment(models.Model):
     def delete_lines(self):
         for rec in self:
             rec.appointment_line = [(5, 0, 0)]
+
+    @api.onchange('partner_id')
+    def onchange_method(self):
+        for rec in self:
+            # rec.order_id = '' # initially empty
+            return {'domain': {'order_id': [('partner_id', '=', rec.partner_id.id)]}}
 
 
 class HospitalAppointmentLines(models.Model):

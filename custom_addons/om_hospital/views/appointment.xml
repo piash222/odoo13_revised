@@ -37,6 +37,8 @@
                             <group>
                                 <field name="notes"/>
                                 <field name="active" invisible="1"/>
+                                <field name="partner_id"/>
+                                <field name="order_id"/>
                             </group>
 
                         </group>
