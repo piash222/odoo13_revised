@@ -33,6 +33,7 @@
                                 class="oe_highlight" context="{'default_patient_id': active_id}"/>
                         <button name="action_send_card" type="object" string="send by Email" class="oe_highlight"
                                 groups="om_hospital.group_hospital_manager"/>
+                        <button name="print_patient_report" type="object" string="print report" class="oe_highlight"/>
                     </header>
                     <sheet>
 

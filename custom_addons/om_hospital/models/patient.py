@@ -99,3 +99,6 @@ class HospitalPatient(models.Model):
     @api.model
     def test_cron_job(self):
         print("cron job")
+
+    def print_patient_report(self):
+        return self.env.ref('om_hospital.report_patient_card').report_action(self)
