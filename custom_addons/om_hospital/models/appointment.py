@@ -1,5 +1,6 @@
 from odoo import fields, models, api, _
 from datetime import datetime
+import pytz
 
 
 class HospitalAppointment(models.Model):
@@ -16,6 +17,7 @@ class HospitalAppointment(models.Model):
     doctor_note = fields.Text(string="Doctor note")
     pharmacy_note = fields.Text(string="Pharmacy note")
     appointment_date = fields.Date(string="Date", required=True, default=datetime.now())
+    appointment_date_time = fields.Datetime(string="Date Time")
     active = fields.Boolean("Active", default=True)
     appointment_line = fields.One2many(comodel_name="hospital.appointment.lines", inverse_name="appointment_id",
                                        string="Appointment Lines")
@@ -49,6 +51,14 @@ class HospitalAppointment(models.Model):
     def delete_lines(self):
         for rec in self:
             rec.appointment_line = [(5, 0, 0)]
+
+    def print_time(self):
+        for rec in self:
+            print("time in utc", rec.appointment_date_time)
+            user_tz = pytz.timezone(self.env.context.get('tz') or self.env.user.tz)
+            print(user_tz)
+            date_today = pytz.utc.localize(rec.appointment_date_time).astimezone(user_tz)
+            print(date_today)
 
     @api.onchange('partner_id')
     def onchange_method(self):

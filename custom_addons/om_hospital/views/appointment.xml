@@ -13,6 +13,8 @@
                                 string="confirm"/>
                         <button class="oe_highlight" name="action_done" type="object" states="confirm" string="done"/>
                         <field name="state" widget="statusbar" statusbar_visible="draft,confirm,done"/>
+                        <button class="oe_highlight" name="print_time" type="object" string="Print Time"/>
+
                     </header>
                     <sheet>
                         <div class="oe_title">
@@ -33,6 +35,7 @@
                             <group>
 
                                 <field name="appointment_date"/>
+                                <field name="appointment_date_time"/>
                             </group>
                             <group>
                                 <field name="notes"/>
@@ -92,7 +95,7 @@
                     <field name="name"/>
                     <field name="state"/>
                     <field name="patient_id"/>
-                    <field name="patient_age" sum="Total of Ages" />
+                    <field name="patient_age" sum="Total of Ages"/>
                     <field name="appointment_date"/>
                 </tree>
             </field>
