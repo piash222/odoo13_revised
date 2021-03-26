@@ -25,3 +25,7 @@ class CreateAppointment(models.TransientModel):
         return {
             "type": "ir.actions.do_nothing"
         }
+
+    def delete_patient(self):
+        for rec in self:
+            rec.patient_id.unlink()
