@@ -28,7 +28,7 @@ class HospitalPatient(models.Model):
     age_group = fields.Selection(
         string='Age Group',
         selection=[('major', 'Major'),
-                   ('minor', 'Minor')], compute='set_age_group')
+                   ('minor', 'Minor')], compute='set_age_group', store=True)
     doctor = fields.Many2one(comodel_name="hospital.doctor", string="Doctor")
     doctor_gender = fields.Selection(
         string='Gender',
