@@ -11,7 +11,7 @@ class HospitalAppointment(models.Model):
 
     name = fields.Char(string="Appointment ID", required=True, copy=False, readonly=True,
                        index=True, default=lambda self: _('New'))
-    patient_id = fields.Many2one('hospital.patient', string="Patient", required=True, default=1,  ondelete="cascade")
+    patient_id = fields.Many2one('hospital.patient', string="Patient", required=True, ondelete="cascade")
     patient_age = fields.Integer(string="Age", related='patient_id.patient_age')
     notes = fields.Text(string="Registration Note", default="Subscribe our youtube channel")
     doctor_note = fields.Text(string="Doctor note")
@@ -65,6 +65,13 @@ class HospitalAppointment(models.Model):
         for rec in self:
             # rec.order_id = '' # initially empty
             return {'domain': {'order_id': [('partner_id', '=', rec.partner_id.id)]}}
+
+    @api.model
+    def default_get(self, fields_list):
+        res = super(HospitalAppointment, self).default_get(fields_list)
+        res['patient_id'] = 1
+        res['notes'] = "like and subscribe our channel"
+        return res
 
 
 class HospitalAppointmentLines(models.Model):
