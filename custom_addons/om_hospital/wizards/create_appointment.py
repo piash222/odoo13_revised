@@ -29,3 +29,30 @@ class CreateAppointment(models.TransientModel):
     def delete_patient(self):
         for rec in self:
             rec.patient_id.unlink()
+            
+    def print_report(self):
+        data = {
+            'model': 'create.appointment',
+            'form': self.read()[0],
+
+        }
+        # if self.read()[0]['patient_id']:
+        #     selected_patient = self.read()[0]['patient_id'][0]
+        #     appointments = self.env['hospital.appointment'].search([('patient_id', '=', selected_patient)])
+        # else:
+        #     appointments = self.env['hospital.appointment'].search([])
+        # print(appointments)
+        # appointment_list = []
+        #
+        # for appointment in appointments:
+        #     vals = {
+        #         'name': appointment.patient_id.patient_name,
+        #         'notes': appointment.notes,
+        #         'appointment_date': appointment.appointment_date
+        #     }
+        #     appointment_list.append(vals)
+        # print(appointment_list)
+        #
+        # data['appointments'] =  appointment_list
+        print('data', data)
+        return self.env.ref('om_hospital.report_appointment').report_action(self, data=data)

@@ -23,5 +23,15 @@
                 file="om_hospital.report_patient_xls"
             />
 
+            <report
+                id="report_appointment"
+                model="hospital.appointment"
+                report_type="qweb-pdf"
+                menu="True"
+                string="appointment report"
+                name="om_hospital.report_appointment_tmp"
+                file="om_hospital.report_appointment_tmp"
+            />
+
     </data>
 </odoo>
