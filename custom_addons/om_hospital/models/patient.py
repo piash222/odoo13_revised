@@ -2,6 +2,16 @@ from odoo import fields, models, api, _
 from odoo.exceptions import ValidationError
 
 
+class ResPartnerInherit(models.Model):
+    _inherit = 'res.partner'
+
+    @api.model
+    def create(self, vals_list):
+        res = super(ResPartnerInherit, self).create(vals_list)
+        print("res partner created")
+        return res
+
+
 class SaleOrderInherit(models.Model):
     _inherit = 'sale.order'
 
